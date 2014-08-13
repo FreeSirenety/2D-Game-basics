@@ -44,6 +44,9 @@
     <ClCompile Include="Object.cpp">
       <Filter>Source Files\Main Engine</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Main Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -71,6 +74,9 @@
       <Filter>Source Files\Main Engine</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
+      <Filter>Source Files\Main Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
       <Filter>Source Files\Main Engine</Filter>
     </ClInclude>
   </ItemGroup>

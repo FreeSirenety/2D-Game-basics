@@ -19,7 +19,7 @@
 *.exe
 *.out
 *.app
-
+*.opensdf
 # =========================
 # Operating System Files
 # =========================

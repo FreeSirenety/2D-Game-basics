@@ -41,6 +41,9 @@
     <ClCompile Include="DrawManager.cpp">
       <Filter>Source Files\Main Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\Main Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">

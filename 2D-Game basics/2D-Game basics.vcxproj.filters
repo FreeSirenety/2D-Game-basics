@@ -49,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="SpriteManager.cpp">
       <Filter>Source Files\Sprites</Filter>
+	 </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Main Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +87,9 @@
     </ClInclude>
     <ClInclude Include="AnimatedSprite.h">
       <Filter>Source Files\Sprites</Filter>
+	</ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Source Files\Main Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

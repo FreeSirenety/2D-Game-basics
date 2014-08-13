@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
+class StateManager;
+
 class Engine
 {
 
@@ -22,5 +24,7 @@ public:
 
 private:
 	sf::RenderWindow *m_xMainWindow;
+
+	StateManager *m_xStateManager;
 
 };

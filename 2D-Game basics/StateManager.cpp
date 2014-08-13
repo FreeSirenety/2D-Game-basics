@@ -65,6 +65,11 @@ void StateManager::HandleQueuedChanges()
 
 	m_eCurrentState = m_eQueuedState;
 
+	if (m_mStates.find(m_eCurrentState) != m_mStates.end())
+	{
+		m_mStates.find(m_eCurrentState)->second->Enter();
+	}
+
 	m_bIsStateChangeQueued = false;
 }
 

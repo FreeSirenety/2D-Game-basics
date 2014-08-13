@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -166,9 +167,11 @@
     <ClCompile Include="StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DrawManager.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MenuState.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="OptionState.h" />
     <ClInclude Include="StartState.h" />
     <ClInclude Include="State.h" />

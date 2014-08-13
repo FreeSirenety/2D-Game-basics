@@ -2,7 +2,7 @@
 
 #include <vector>
 
-class GameObject;
+class Object;
 
 class State
 {
@@ -15,6 +15,6 @@ public:
 
 	virtual void Exit() = 0;
 
-	std::vector<GameObject*> m_vStateObjects;
+	std::vector<Object*> m_vStateObjects;
 
 };

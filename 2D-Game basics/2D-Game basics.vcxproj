@@ -164,16 +164,19 @@
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="OptionState.cpp" />
+    <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="StartState.cpp" />
     <ClCompile Include="StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="OptionState.h" />
+    <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="StartState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />

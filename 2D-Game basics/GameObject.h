@@ -7,6 +7,9 @@ class GameObject : public sf::Drawable
 public:
 	GameObject();
 	~GameObject();
+
+	virtual void Update(float p_fDeltaTime);
+
 	void SetGameObject(sf::Vector2f p_xPos, float p_fWidth, float p_fHeight, sf::Sprite *p_xSprite);
 	void SetPos(sf::Vector2f p_xPos);
 	void SetWidth(float p_fWidth);

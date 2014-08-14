@@ -13,6 +13,11 @@ GameObject::~GameObject()
 
 }
 
+void GameObject::Update(float p_fDeltaTime)
+{
+
+}
+
 void GameObject::SetGameObject(sf::Vector2f p_xPos, float p_fWidth, float p_fHeight, sf::Sprite* p_xSprite)
 {
 	m_xPos = p_xPos;	

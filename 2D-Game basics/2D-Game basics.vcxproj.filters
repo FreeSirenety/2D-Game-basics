@@ -18,6 +18,9 @@
     <Filter Include="Source Files\Sprites">
       <UniqueIdentifier>{0ce6a8a5-de10-4081-9f8d-28b5fb487284}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game Objects">
+      <UniqueIdentifier>{638be049-922c-4078-8940-bdd70401c2fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -49,9 +52,9 @@
     </ClCompile>
     <ClCompile Include="SpriteManager.cpp">
       <Filter>Source Files\Sprites</Filter>
-	 </ClCompile>
+    </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Main Engine</Filter>
+      <Filter>Source Files\Game Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,9 +90,12 @@
     </ClInclude>
     <ClInclude Include="AnimatedSprite.h">
       <Filter>Source Files\Sprites</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Source Files\Main Engine</Filter>
+      <Filter>Source Files\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source Files\Game Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

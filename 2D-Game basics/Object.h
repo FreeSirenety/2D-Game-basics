@@ -12,6 +12,6 @@ public:
 	void SetTag(std::string p_sTag);
 	std::string GetTag();
 
-private:
+protected:
 	std::string m_sTag;
 };

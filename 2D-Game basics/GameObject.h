@@ -18,11 +18,14 @@ public:
 	float GetHeight();
 	sf::Sprite* GetSprite();
 
-private:
+protected:
 	sf::Vector2f m_xPos;
 	float m_fHeight;
 	float m_fWidth;
 	sf::Sprite* m_xSprite;
+
+private:
+	
 	virtual void Draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		target.draw(*m_xSprite, states);

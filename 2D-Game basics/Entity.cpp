@@ -8,7 +8,7 @@ Entity::Entity()
 
 void Entity::Update(float p_fDeltaTime)
 {
-
+	GameObject::Update(p_fDeltaTime);
 }
 
 void Entity::Move(float p_fDeltaTime)

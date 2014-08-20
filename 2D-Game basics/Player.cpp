@@ -8,7 +8,7 @@ Player::Player()
 
 void Player::Update(float p_fDeltaTime)
 {
-
+	Entity::Update(p_fDeltaTime);
 }
 
 void Player::UpButtonPressed()

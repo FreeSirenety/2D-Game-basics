@@ -1,8 +1,9 @@
 // GameObject.h
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include "Object.h"
 
-class GameObject : public sf::Drawable
+class GameObject : public sf::Drawable, public Object
 {
 public:
 	GameObject();

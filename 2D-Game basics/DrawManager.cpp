@@ -1,5 +1,5 @@
 #include "DrawManager.h"
-#include "Object.h"
+#include "GameObject.h"
 
 DrawManager::DrawManager(sf::RenderWindow *p_xWindow)
 {
@@ -14,7 +14,7 @@ void DrawManager::DrawDrawable(sf::Drawable *p_xDrawable)
 	}
 }
 
-void DrawManager::DrawObjectVector(std::vector<Object*> p_xObjectVector)
+void DrawManager::DrawObjectVector(std::vector<GameObject*> p_xObjectVector)
 {
 	for (auto object : p_xObjectVector)
 	{

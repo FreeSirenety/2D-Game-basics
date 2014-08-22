@@ -3,9 +3,9 @@
 #include "SFML/Graphics.hpp"
 #include <vector>
 
-class Object;
+class GameObject;
 
-class DrawManager : public sf::Drawable
+class DrawManager
 {
 
 public:
@@ -13,7 +13,7 @@ public:
 
 	void DrawDrawable(sf::Drawable *p_xDrawable);
 
-	void DrawObjectVector(std::vector<Object*> p_xObjectVector);
+	void DrawObjectVector(std::vector<GameObject*> p_xObjectVector);
 
 private:
 	sf::RenderWindow *m_xWindow;

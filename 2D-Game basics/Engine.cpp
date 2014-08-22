@@ -2,12 +2,18 @@
 #include "InputHandler.h"
 #include <iostream>
 #include "StateManager.h"
+#include "DrawManager.h"
+#include "SpriteManager.h"
 
 Engine::Engine()
 {
 	m_xMainWindow = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
 
-	m_xStateManager = new StateManager();
+	m_xDrawManager = new DrawManager(m_xMainWindow);
+
+	m_xSpriteManager = new SpriteManager("");
+
+	m_xStateManager = new StateManager(m_xDrawManager, m_xSpriteManager);
 }
 
 void Engine::Run()
@@ -26,6 +32,7 @@ void Engine::Run()
 
 	while (m_xMainWindow->isOpen())
 	{
+		m_xMainWindow->clear();
 		sf::Event event;
 		while (m_xMainWindow->pollEvent(event))
 		{
@@ -33,7 +40,7 @@ void Engine::Run()
 				m_xMainWindow->close();
 
 			if (event.type == sf::Event::KeyPressed)
-				inputHandler->RunFunctionFromKey(event.key.code);
+				m_xStateManager->HandleEvent(event.key.code);
 
 			/*if (event.type == sf::Event::MouseButtonPressed)
 				inputHandler->RebindOnNextKeyEvent(InputHandler::FORWARD);*/
@@ -42,7 +49,7 @@ void Engine::Run()
 
 		m_xStateManager->Update(0);
 
-		m_xMainWindow->clear();
+		
 		m_xMainWindow->display();
 	}
 }

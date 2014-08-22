@@ -2,10 +2,12 @@
 
 #include "State.h"
 
+class SpriteManager;
+
 class StartState : public State
 {
 public:
-	StartState();
+	StartState(SpriteManager *p_xSpriteManager);
 
 	virtual void Enter();
 

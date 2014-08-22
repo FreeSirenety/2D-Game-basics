@@ -40,7 +40,7 @@ void Object::UpdateTimers(float p_fDeltaTime)
 	{
 		if (m_mTimers.find(timerID) != m_mTimers.end())
 		{
-			auto timerToErase = m_mTimers.find(timerID)¨;
+			auto timerToErase = m_mTimers.find(timerID);
 
 			delete timerToErase->second;
 

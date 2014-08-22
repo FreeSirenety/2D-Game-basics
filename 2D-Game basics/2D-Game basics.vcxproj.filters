@@ -68,6 +68,9 @@
     <ClCompile Include="SoundManager.cpp">
       <Filter>Source Files\Main Engine</Filter>
     </ClCompile>
+    <ClCompile Include="MainGameState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -117,6 +120,9 @@
     </ClInclude>
     <ClInclude Include="SoundManager.h">
       <Filter>Source Files\Main Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGameState.h">
+      <Filter>Source Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

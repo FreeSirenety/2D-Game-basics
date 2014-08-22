@@ -26,5 +26,4 @@ protected:
 	float m_fSpeed;
 private:
 
-
 };

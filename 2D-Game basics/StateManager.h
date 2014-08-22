@@ -1,8 +1,11 @@
 #pragma once
 
 #include <map>
+#include "SFML/Graphics.hpp"
 
 class State;
+class DrawManager;
+class SpriteManager;
 
 class StateManager
 {
@@ -12,11 +15,12 @@ public:
 	{
 		MENUSTATE,
 		OPTIONSTATE,
-		STARTSTATE
+		STARTSTATE,
+		MAINGAMESTATE
 	};
 
 public:
-	StateManager();
+	StateManager(DrawManager *p_xDrawManager, SpriteManager *p_xSpriteManager);
 
 	void Update(float DeltaTime);
 
@@ -30,6 +34,8 @@ public:
 
 	States GetCurrentState();
 
+	void HandleEvent(sf::Keyboard::Key p_eKey);
+
 private:
 	std::map<States, State*> m_mStates;
 
@@ -38,4 +44,8 @@ private:
 	States m_eQueuedState;
 
 	bool m_bIsStateChangeQueued;
+
+	DrawManager *m_xDrawManager;
+
+	SpriteManager *m_xSpriteManager;
 };

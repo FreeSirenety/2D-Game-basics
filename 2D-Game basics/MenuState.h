@@ -2,11 +2,13 @@
 
 #include "State.h"
 
+class SpriteManager;
+
 class MenuState : public State
 {
 
 public:
-	MenuState();
+	MenuState(SpriteManager *p_xSpriteManager);
 
 	virtual void Enter();
 

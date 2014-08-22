@@ -1,7 +1,7 @@
 #include "OptionState.h"
 #include <iostream>
 
-OptionState::OptionState()
+OptionState::OptionState(SpriteManager *p_xSpriteManager) : State(p_xSpriteManager)
 {
 
 }

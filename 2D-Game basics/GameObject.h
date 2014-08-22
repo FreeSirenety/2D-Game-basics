@@ -30,7 +30,7 @@ protected:
 
 private:
 	
-	virtual void Draw(sf::RenderTarget& target, sf::RenderStates states) const
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		target.draw(*m_xSprite, states);
 	}

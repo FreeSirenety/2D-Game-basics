@@ -1,7 +1,7 @@
 #include "MenuState.h"
 #include <iostream>
 
-MenuState::MenuState()
+MenuState::MenuState(SpriteManager *p_xSpriteManager) : State(p_xSpriteManager)
 {
 
 }

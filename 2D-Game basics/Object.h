@@ -8,7 +8,7 @@
 
 class Timer;
 
-class Object : public sf::Drawable
+class Object
 {
 public:
 	Object();

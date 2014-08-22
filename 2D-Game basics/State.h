@@ -1,13 +1,22 @@
 #pragma once
 
 #include <vector>
+#include "SFML/Graphics.hpp"
+#include "InputHandler.h"
 
-class Object;
+class GameObject;
+class SpriteManager;
 
 class State
 {
 
 public:
+	State(SpriteManager *p_xSpriteManager)
+	{
+		m_xInputHandler = new InputHandler();
+
+		m_xSpriteManager = p_xSpriteManager;
+	}
 
 	virtual void Enter() = 0;
 
@@ -15,6 +24,16 @@ public:
 
 	virtual void Exit() = 0;
 
-	std::vector<Object*> m_vStateObjects;
+	std::vector<GameObject*> m_vStateObjects;
+
+	virtual void HandleInput(sf::Keyboard::Key p_eKey)
+	{
+		m_xInputHandler->RunFunctionFromKey(p_eKey);
+	}
+
+protected:
+	InputHandler *m_xInputHandler;
+
+	SpriteManager *m_xSpriteManager;
 
 };

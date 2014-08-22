@@ -2,13 +2,14 @@
 
 #include "State.h"
 
+class Player;
 class SpriteManager;
 
-class OptionState : public State
+class MainGameState : public State
 {
 
 public:
-	OptionState(SpriteManager *p_xSpriteManager);
+	MainGameState(SpriteManager *p_xSpriteManager);
 
 	virtual void Enter();
 
@@ -17,6 +18,6 @@ public:
 	virtual void Exit();
 
 private:
-
+	Player *m_xPlayer;
 
 };

@@ -1,7 +1,7 @@
 #include "StartState.h"
 #include <iostream>
 
-StartState::StartState()
+StartState::StartState(SpriteManager *p_xSpriteManager) : State(p_xSpriteManager)
 {
 
 }

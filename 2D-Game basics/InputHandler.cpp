@@ -6,78 +6,89 @@ InputHandler::InputHandler()
 }
 
 //Function that maps a function to an defined input
-void InputHandler::MapFunctionToInput(Inputs p_eInput, std::function<void()> m_fFunction)
+void InputHandler::MapFunctionToInput(Inputs p_eInput, std::function<void()> m_fFunction, bool pressed)
 {
 
-	//if (m_fFunction != NULL && p_eInput != NULL)
+	if (pressed)
 	{
 		std::pair<Inputs, std::function<void()>> pair(p_eInput, m_fFunction);
 
-		auto it = m_mInputFunctions.find(p_eInput);
+		auto it = m_mPressedInputFunctions.find(p_eInput);
 
-		if (it != m_mInputFunctions.end())
+		if (it != m_mPressedInputFunctions.end())
 		{
-			m_mInputFunctions.erase(it);
+			m_mPressedInputFunctions.erase(it);
 		}
 
-		m_mInputFunctions.insert(pair);
+		m_mPressedInputFunctions.insert(pair);
+	}
+	else
+	{
+		std::pair<Inputs, std::function<void()>> pair(p_eInput, m_fFunction);
+
+		auto it = m_mReleasedInputFunctions.find(p_eInput);
+
+		if (it != m_mReleasedInputFunctions.end())
+		{
+			m_mReleasedInputFunctions.erase(it);
+		}
+
+		m_mReleasedInputFunctions.insert(pair);
 	}
 }
 
 //Function that maps an input to a key
-void InputHandler::MapInputToKey(sf::Keyboard::Key m_pKey, Inputs p_eInput)
+void InputHandler::MapInputToKey(sf::Keyboard::Key m_pKey, Inputs p_eInput, bool pressed)
 {
-	//if (m_pKey != NULL && p_eInput != NULL)
+	if (pressed)
 	{
 		std::pair<sf::Keyboard::Key, Inputs> pair(m_pKey, p_eInput);
 
-		auto it = m_mKeyBindings.find(m_pKey);
+		auto it = m_mPressedKeyBindings.find(m_pKey);
 
-		if (it != m_mKeyBindings.end())
+		if (it != m_mPressedKeyBindings.end())
 		{
-			m_mKeyBindings.erase(it);
+			m_mPressedKeyBindings.erase(it);
 		}
 
-		m_mKeyBindings.insert(pair);
+		m_mPressedKeyBindings.insert(pair);
 	}
-}
-
-//Function that runs function from a key and returns whether it succeeded or not
-bool InputHandler::RunFunctionFromInput(Inputs p_eInput)
-{
-	auto it = m_mInputFunctions.find(p_eInput);
-
-	if (it != m_mInputFunctions.end())
+	else
 	{
-		it->second();
+		std::pair<sf::Keyboard::Key, Inputs> pair(m_pKey, p_eInput);
 
-		return true;
-	}
+		auto it = m_mReleasedKeyBindings.find(m_pKey);
 
-	return false;
-}
-
-//Function that runs function from a key and returns whether it succeeded or not
-bool InputHandler::RunFunctionFromKey(sf::Keyboard::Key m_pKey)
-{
-	if (m_bRebindMode)
-	{
-		MapInputToKey(m_pKey, m_eRebindInput);
-
-		m_bRebindMode = false;
-
-		return false;
-	}
-
-	auto it = m_mKeyBindings.find(m_pKey);
-
-	if (it != m_mKeyBindings.end())
-	{
-		auto it2 = m_mInputFunctions.find(it->second);
-
-		if (it2 != m_mInputFunctions.end())
+		if (it != m_mReleasedKeyBindings.end())
 		{
-			it2->second();
+			m_mReleasedKeyBindings.erase(it);
+		}
+
+		m_mReleasedKeyBindings.insert(pair);
+	}
+}
+
+//Function that runs function from a key and returns whether it succeeded or not
+bool InputHandler::RunFunctionFromInput(Inputs p_eInput, bool pressed)
+{
+	if (pressed)
+	{
+		auto it = m_mPressedInputFunctions.find(p_eInput);
+
+		if (it != m_mPressedInputFunctions.end())
+		{
+			it->second();
+
+			return true;
+		}
+	}
+	else
+	{
+		auto it = m_mReleasedInputFunctions.find(p_eInput);
+
+		if (it != m_mReleasedInputFunctions.end())
+		{
+			it->second();
 
 			return true;
 		}
@@ -86,8 +97,64 @@ bool InputHandler::RunFunctionFromKey(sf::Keyboard::Key m_pKey)
 	return false;
 }
 
+//Function that runs function from a key and returns whether it succeeded or not
+bool InputHandler::RunFunctionFromKey(sf::Keyboard::Key m_pKey, bool pressed)
+{
+	if (pressed)
+	{
+		if (m_bRebindMode)
+		{
+			MapInputToKey(m_pKey, m_eRebindInput, pressed);
+
+			m_bRebindMode = false;
+
+			return false;
+		}
+
+		auto it = m_mPressedKeyBindings.find(m_pKey);
+
+		if (it != m_mPressedKeyBindings.end())
+		{
+			auto it2 = m_mPressedInputFunctions.find(it->second);
+
+			if (it2 != m_mPressedInputFunctions.end())
+			{
+				it2->second();
+
+				return true;
+			}
+		}
+	}
+	else
+	{
+		if (m_bRebindMode)
+		{
+			MapInputToKey(m_pKey, m_eRebindInput, pressed);
+
+			m_bRebindMode = false;
+
+			return false;
+		}
+
+		auto it = m_mReleasedKeyBindings.find(m_pKey);
+
+		if (it != m_mReleasedKeyBindings.end())
+		{
+			auto it2 = m_mReleasedInputFunctions.find(it->second);
+
+			if (it2 != m_mReleasedInputFunctions.end())
+			{
+				it2->second();
+
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 //Function that sets a input to be the next one rebound to the next key obtained by an event 
-void InputHandler::RebindOnNextKeyEvent(Inputs p_eInput)
+void InputHandler::RebindOnNextKeyEvent(Inputs p_eInput, bool pressed)
 {
 	m_bRebindMode = true;
 

@@ -3,9 +3,9 @@
 #include "GameObject.h"
 
 
-GameObject::GameObject()
+GameObject::GameObject() : Object()
 {
-
+	
 }
 
 GameObject::~GameObject()

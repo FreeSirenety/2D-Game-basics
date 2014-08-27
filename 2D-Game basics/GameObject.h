@@ -1,7 +1,7 @@
 // GameObject.h
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
+
 #include "Object.h"
+#include <SFML/Graphics.hpp>
 
 class GameObject : public sf::Drawable, public Object
 {
@@ -22,6 +22,7 @@ public:
 	float GetHeight();
 	sf::Sprite* GetSprite();
 
+	
 protected:
 	sf::Vector2f m_xPos;
 	float m_fHeight;

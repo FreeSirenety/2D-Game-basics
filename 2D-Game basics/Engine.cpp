@@ -7,7 +7,7 @@
 
 Engine::Engine()
 {
-	m_xMainWindow = new sf::RenderWindow(sf::VideoMode(200, 200), "SFML works!");
+	m_xMainWindow = new sf::RenderWindow(sf::VideoMode(800, 800), "SFML works!");
 
 	m_xDrawManager = new DrawManager(m_xMainWindow);
 
@@ -18,18 +18,7 @@ Engine::Engine()
 
 void Engine::Run()
 {
-	InputHandler *inputHandler = new InputHandler();
-
-	inputHandler->MapFunctionToInput(InputHandler::FORWARD, std::bind(&Engine::TestInput, this));
-	inputHandler->MapFunctionToInput(InputHandler::BACKWARDS, std::bind(&Engine::SetStartState, this));
-	inputHandler->MapFunctionToInput(InputHandler::LEFT, std::bind(&Engine::SetMenuState, this));
-	inputHandler->MapFunctionToInput(InputHandler::RIGHT, std::bind(&Engine::SetOptionState, this));
-
-	inputHandler->MapInputToKey(sf::Keyboard::W, InputHandler::FORWARD);
-	inputHandler->MapInputToKey(sf::Keyboard::A, InputHandler::BACKWARDS);
-	inputHandler->MapInputToKey(sf::Keyboard::S, InputHandler::LEFT);
-	inputHandler->MapInputToKey(sf::Keyboard::D, InputHandler::RIGHT);
-
+	sf::Clock clock;
 	while (m_xMainWindow->isOpen())
 	{
 		m_xMainWindow->clear();
@@ -40,14 +29,17 @@ void Engine::Run()
 				m_xMainWindow->close();
 
 			if (event.type == sf::Event::KeyPressed)
-				m_xStateManager->HandleEvent(event.key.code);
+				m_xStateManager->HandleEvent(event.key.code, true);
+
+			if (event.type == sf::Event::KeyReleased)
+				m_xStateManager->HandleEvent(event.key.code, false);
 
 			/*if (event.type == sf::Event::MouseButtonPressed)
-				inputHandler->RebindOnNextKeyEvent(InputHandler::FORWARD);*/
+				inputHandler->RebindOnNextKeyEvent(InputHandwaler::FORWARD);*/
 
 		}
 
-		m_xStateManager->Update(0);
+		m_xStateManager->Update(clock.restart().asSeconds());
 
 		
 		m_xMainWindow->display();

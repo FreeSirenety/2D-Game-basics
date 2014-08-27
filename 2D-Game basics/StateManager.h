@@ -34,7 +34,7 @@ public:
 
 	States GetCurrentState();
 
-	void HandleEvent(sf::Keyboard::Key p_eKey);
+	void HandleEvent(sf::Keyboard::Key p_eKey, bool pressed);
 
 private:
 	std::map<States, State*> m_mStates;

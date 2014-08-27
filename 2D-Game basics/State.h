@@ -26,9 +26,9 @@ public:
 
 	std::vector<GameObject*> m_vStateObjects;
 
-	virtual void HandleInput(sf::Keyboard::Key p_eKey)
+	virtual void HandleInput(sf::Keyboard::Key p_eKey, bool pressed)
 	{
-		m_xInputHandler->RunFunctionFromKey(p_eKey);
+		m_xInputHandler->RunFunctionFromKey(p_eKey, pressed);
 	}
 
 protected:

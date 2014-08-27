@@ -90,10 +90,10 @@ StateManager::States StateManager::GetCurrentState()
 	return m_eCurrentState;
 }
 
-void StateManager::HandleEvent(sf::Keyboard::Key p_eKey)
+void StateManager::HandleEvent(sf::Keyboard::Key p_eKey, bool pressed)
 {
 	if (m_mStates.find(m_eCurrentState) != m_mStates.end())
 	{
-		m_mStates.find(m_eCurrentState)->second->HandleInput(p_eKey);
+		m_mStates.find(m_eCurrentState)->second->HandleInput(p_eKey, pressed);
 	}
 }

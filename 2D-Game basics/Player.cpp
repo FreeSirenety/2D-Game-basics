@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <iostream>
 #include <math.h>
+#include "DebugManager.h"
 
 Player::Player() : Entity()
 {
@@ -14,6 +15,7 @@ Player::Player() : Entity()
 
 void Player::UpdatePlayerVelocity()
 {
+	DebugManager::GetInstance().Update(2);
 
 	if (m_bUpMovementPressed)
 	{

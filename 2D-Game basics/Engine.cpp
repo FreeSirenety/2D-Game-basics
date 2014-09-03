@@ -4,6 +4,7 @@
 #include "StateManager.h"
 #include "DrawManager.h"
 #include "SpriteManager.h"
+#include "DebugManager.h"
 
 Engine::Engine()
 {
@@ -18,6 +19,7 @@ Engine::Engine()
 
 void Engine::Run()
 {
+
 	sf::Clock clock;
 	while (m_xMainWindow->isOpen())
 	{
@@ -38,6 +40,8 @@ void Engine::Run()
 				inputHandler->RebindOnNextKeyEvent(InputHandwaler::FORWARD);*/
 
 		}
+
+		DebugManager::GetInstance().Update(1);
 
 		m_xStateManager->Update(clock.restart().asSeconds());
 

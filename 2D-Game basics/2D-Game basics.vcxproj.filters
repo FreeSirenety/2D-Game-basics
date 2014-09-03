@@ -71,6 +71,12 @@
     <ClCompile Include="MainGameState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
+    <ClCompile Include="DebugManager.cpp">
+      <Filter>Source Files\Main Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="TextObject.cpp">
+      <Filter>Source Files\Game Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -123,6 +129,12 @@
     </ClInclude>
     <ClInclude Include="MainGameState.h">
       <Filter>Source Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugManager.h">
+      <Filter>Source Files\Main Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="TextObject.h">
+      <Filter>Source Files\Game Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

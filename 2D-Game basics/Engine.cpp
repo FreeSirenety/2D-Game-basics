@@ -42,6 +42,7 @@ void Engine::Run()
 		m_xStateManager->Update(clock.restart().asSeconds());
 
 		
+
 		m_xMainWindow->display();
 	}
 }

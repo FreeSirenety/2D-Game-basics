@@ -11,6 +11,8 @@ public:
 
 	void SetColor(sf::Color p_xColor);
 
+	void SetPosition(sf::Vector2f p_xNewPosition);
+
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
@@ -20,4 +22,6 @@ private:
 	sf::Color m_xColor;
 
 	sf::Text m_xText;
+
+	sf::Vector2f m_xPosition;
 };

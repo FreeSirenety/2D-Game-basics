@@ -15,7 +15,6 @@ Player::Player() : Entity()
 
 void Player::UpdatePlayerVelocity()
 {
-	DebugManager::GetInstance().Update(2);
 
 	if (m_bUpMovementPressed)
 	{
@@ -55,6 +54,7 @@ void Player::UpButtonPressed()
 	m_bUpMovementPressed = true;
 
 	std::cout << "Player up pressed" << std::endl;
+	DebugManager::GetInstance().CreateDebugMessage("Player up pressed", DebugManager::ALERT);
 }
 
 void Player::DownButtonPressed()
@@ -62,6 +62,8 @@ void Player::DownButtonPressed()
 	m_bDownMovementPressed = true;
 
 	std::cout << "Player down pressed" << std::endl;
+
+	DebugManager::GetInstance().CreateDebugMessage("Player down pressed", DebugManager::ALERT);
 }
 
 void Player::LeftButtonPressed()

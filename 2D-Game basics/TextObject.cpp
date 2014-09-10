@@ -23,3 +23,9 @@ void TextObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(m_xText);
 }
+
+void TextObject::SetPosition(sf::Vector2f p_xNewPosition)
+{
+	m_xPosition = p_xNewPosition;
+	m_xText.setPosition(m_xPosition);
+}

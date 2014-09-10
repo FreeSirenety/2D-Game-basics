@@ -8,13 +8,17 @@
 
 Engine::Engine()
 {
-	m_xMainWindow = new sf::RenderWindow(sf::VideoMode(800, 800), "SFML works!");
+	m_xMainWindow = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML works!");
 
 	m_xDrawManager = new DrawManager(m_xMainWindow);
 
 	m_xSpriteManager = new SpriteManager("");
 
 	m_xStateManager = new StateManager(m_xDrawManager, m_xSpriteManager);
+
+	DebugManager::GetInstance().CreateDebugMessage("Test1", DebugManager::ALERT);
+	DebugManager::GetInstance().CreateDebugMessage("Test2", DebugManager::ALERT);
+	DebugManager::GetInstance().CreateDebugMessage("Test3", DebugManager::ALERT);
 }
 
 void Engine::Run()
@@ -41,11 +45,9 @@ void Engine::Run()
 
 		}
 
-		DebugManager::GetInstance().Update(1);
-
 		m_xStateManager->Update(clock.restart().asSeconds());
 
-		
+		m_xMainWindow->draw(DebugManager::GetInstance());
 
 		m_xMainWindow->display();
 	}

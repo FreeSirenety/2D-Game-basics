@@ -21,6 +21,8 @@ Engine::Engine()
 	DebugManager::GetInstance().CreateDebugMessage("Test1", DebugManager::ALERT);
 	DebugManager::GetInstance().CreateDebugMessage("Test2", DebugManager::ALERT);
 	DebugManager::GetInstance().CreateDebugMessage("Test3", DebugManager::ALERT);
+
+	
 }
 
 void Engine::Run()

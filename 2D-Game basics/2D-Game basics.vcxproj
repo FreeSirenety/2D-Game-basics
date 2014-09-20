@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedSprite.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="DebugManager.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="Engine.h" />

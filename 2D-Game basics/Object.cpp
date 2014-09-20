@@ -57,6 +57,8 @@ void Object::AttachTimer(std::string p_sID, float p_fDuration)
 	{
 		std::pair<std::string, Timer*> timerPair(p_sID, new Timer(p_fDuration));
 
+		timerPair.second->Start();
+
 		m_mTimers.insert(timerPair);
 	}
 	else
@@ -70,6 +72,8 @@ void Object::AttachTimer(std::string p_sID, float p_fDuration, std::function<voi
 	if (m_mTimers.find(p_sID) == m_mTimers.end())
 	{
 		std::pair<std::string, Timer*> timerPair(p_sID, new Timer(p_fDuration, p_fFunction));
+
+		timerPair.second->Start();
 
 		m_mTimers.insert(timerPair);
 	}

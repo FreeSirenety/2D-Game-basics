@@ -12,6 +12,16 @@ void DebugManager::CreateDebugMessage(std::string p_xStringToWrite, MessageType 
 	sf::Font font;
 	font.loadFromFile("arial.ttf");
 
+	if (m_vTextObjects.size() > 300)
+	{
+		auto iter = m_vTextObjects.begin();
+		iter++;
+
+		delete *iter;
+
+		m_vTextObjects.erase(iter);
+	}
+
 	switch (p_xMessageType)
 	{
 	case WARNING:

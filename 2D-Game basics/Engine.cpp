@@ -10,6 +10,8 @@ Engine::Engine()
 {
 	m_xMainWindow = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML works!");
 
+	m_xMainWindow->setKeyRepeatEnabled(false);
+
 	m_xDrawManager = new DrawManager(m_xMainWindow);
 
 	m_xSpriteManager = new SpriteManager("");
@@ -45,7 +47,14 @@ void Engine::Run()
 
 		}
 
-		m_xStateManager->Update(clock.restart().asSeconds());
+		float DeltaTime = clock.restart().asSeconds();
+
+		if (DeltaTime > 0.1)
+		{
+			DeltaTime = 0.1;
+		}
+
+		m_xStateManager->Update(DeltaTime);
 
 		m_xMainWindow->draw(DebugManager::GetInstance());
 

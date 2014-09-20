@@ -10,7 +10,9 @@ Player::Player() : Entity()
 	m_bLeftMovementPressed = false;
 	m_bRightMovementPressed = false;
 
-	m_fSpeed = 100.f;
+	m_fSpeed = 250.f;
+
+	m_bIsDashing = false;
 }
 
 void Player::UpdatePlayerVelocity()
@@ -53,55 +55,79 @@ void Player::UpButtonPressed()
 {
 	m_bUpMovementPressed = true;
 
-	std::cout << "Player up pressed" << std::endl;
-	DebugManager::GetInstance().CreateDebugMessage("Player up pressed", DebugManager::ALERT);
+	StartDashTimer();
 }
 
 void Player::DownButtonPressed()
 {
 	m_bDownMovementPressed = true;
 
-	std::cout << "Player down pressed" << std::endl;
-
-	DebugManager::GetInstance().CreateDebugMessage("Player down pressed", DebugManager::ALERT);
+	StartDashTimer();
 }
 
 void Player::LeftButtonPressed()
 {
 	m_bLeftMovementPressed = true;
 
-	std::cout << "Player left pressed" << std::endl;
+	StartDashTimer();
 }
 
 void Player::RightButtonPressed()
 {
 	m_bRightMovementPressed = true;
-	std::cout << "Player right pressed" << std::endl;
+
+	StartDashTimer();
 }
 
 void Player::UpButtonReleased()
 {
 	m_bUpMovementPressed = false;
-
-	std::cout << "Player up released" << std::endl;
 }
 
 void Player::DownButtonReleased()
 {
 	m_bDownMovementPressed = false;
-
-	std::cout << "Player down released" << std::endl;
 }
 
 void Player::LeftButtonReleased()
 {
 	m_bLeftMovementPressed = false;
-
-	std::cout << "Player left released" << std::endl;
 }
 
 void Player::RightButtonReleased()
 {
 	m_bRightMovementPressed = false;
-	std::cout << "Player right released" << std::endl;
+}
+
+void Player::StartDashTimer()
+{
+	if (m_bIsDashing)
+	{
+		Dash();
+
+		return;
+	}
+
+	m_bIsDashing = true;
+
+	AttachTimer("DashTimer", 0.5, std::bind(&Player::DashTimerStopped, this));
+}
+
+void Player::DashTimerStopped()
+{
+	m_bIsDashing = false;
+
+	DebugManager::GetInstance().CreateDebugMessage("Dash timer stopped", DebugManager::LOG);
+}
+
+void Player::Dash()
+{
+	AttachTimer("DashFinishedTimer", 0.2, std::bind(&Player::DashFinished, this));
+
+	m_fSpeed = 600.f;
+}
+
+void Player::DashFinished()
+{
+	m_fSpeed = 250.f;
 }

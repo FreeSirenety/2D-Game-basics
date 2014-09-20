@@ -136,5 +136,8 @@
     <ClInclude Include="TextObject.h">
       <Filter>Source Files\Game Objects</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Source Files\Main Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

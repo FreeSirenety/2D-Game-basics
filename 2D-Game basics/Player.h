@@ -23,10 +23,19 @@ public:
 
 	void UpdatePlayerVelocity();
 
+	void StartDashTimer();
+
+	void DashTimerStopped();
+
+	void Dash();
+
+	void DashFinished();
+
 private:
 	bool m_bUpMovementPressed;
 	bool m_bDownMovementPressed;
 	bool m_bLeftMovementPressed;
 	bool m_bRightMovementPressed;
 
+	bool m_bIsDashing;
 };

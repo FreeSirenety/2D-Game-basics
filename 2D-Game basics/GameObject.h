@@ -16,18 +16,20 @@ public:
 	void SetWidth(float p_fWidth);
 	void SetHeight(float p_fHeight);
 	void SetSprite(sf::Sprite *p_xSprite);
+	void SetRotation(float p_fRotation);
 
 	sf::Vector2f GetPos();
 	float GetWidth();
 	float GetHeight();
 	sf::Sprite* GetSprite();
-
+	float GetRotation();
 	
 protected:
 	sf::Vector2f m_xPos;
 	float m_fHeight;
 	float m_fWidth;
 	sf::Sprite* m_xSprite;
+	float m_fRotation;
 
 private:
 	

@@ -7,9 +7,35 @@ MainGameState::MainGameState(SpriteManager *p_xSpriteManager) : State(p_xSpriteM
 {
 	m_xPlayer = new Player();
 
-	m_xPlayer->SetSprite(m_xSpriteManager->loadSprite("exit.png", 0, 0, 64, 64));
+	m_xPlayer->SetGameObject(sf::Vector2f(100, 100), 64, 64, m_xSpriteManager->loadSprite("exit.png", 0, 0, 64, 64));
 
 	m_vStateObjects.push_back(m_xPlayer);
+
+	GameObject *obj;
+
+	obj = new GameObject();
+
+	obj->SetGameObject(sf::Vector2f(300, 300), 64, 64, m_xSpriteManager->loadSprite("exit.png", 0, 0, 64, 64));
+
+	m_vStateObjects.push_back(obj);
+
+	obj = new GameObject();
+
+	obj->SetGameObject(sf::Vector2f(300, 600), 64, 64, m_xSpriteManager->loadSprite("exit.png", 0, 0, 64, 64));
+
+	m_vStateObjects.push_back(obj);
+
+	obj = new GameObject();
+
+	obj->SetGameObject(sf::Vector2f(600, 600), 64, 64, m_xSpriteManager->loadSprite("exit.png", 0, 0, 64, 64));
+
+	m_vStateObjects.push_back(obj);
+
+	obj = new GameObject();
+
+	obj->SetGameObject(sf::Vector2f(600, 300), 64, 64, m_xSpriteManager->loadSprite("exit.png", 0, 0, 64, 64));
+
+	m_vStateObjects.push_back(obj);
 
 	m_xInputHandler->MapFunctionToInput(InputHandler::FORWARD, std::bind(&Player::UpButtonPressed, m_xPlayer), true);
 	m_xInputHandler->MapFunctionToInput(InputHandler::BACKWARDS, std::bind(&Player::DownButtonPressed, m_xPlayer), true);

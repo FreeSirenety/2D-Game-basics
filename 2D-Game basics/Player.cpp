@@ -49,6 +49,8 @@ void Player::Update(float p_fDeltaTime)
 
 	m_xVelocity.x = 0;
 	m_xVelocity.y = 0;
+
+	SetRotation(GetRotation() + p_fDeltaTime * 50);
 }
 
 void Player::UpButtonPressed()

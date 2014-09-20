@@ -7,6 +7,7 @@
 #include "SFML/Graphics.hpp"
 
 class Timer;
+class Component;
 
 class Object
 {
@@ -27,4 +28,6 @@ protected:
 	std::string m_sTag;
 
 	std::map<std::string, Timer*> m_mTimers;
+
+	std::vector<Component*> m_vComponents;
 };

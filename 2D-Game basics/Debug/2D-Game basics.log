@@ -1,11 +1,15 @@
-﻿Build started 9/20/2014 2:17:27 PM.
+﻿Build started 9/20/2014 6:00:47 PM.
      1>Project "C:\Users\Oliver Bolt\Documents\2D-Game basics\2D-Game basics\2D-Game basics.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML\SFML-2.1\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Player.cpp
-         Player.cpp
-     1>c:\users\oliver bolt\documents\2d-game basics\2d-game basics\player.cpp(125): warning C4305: 'argument' : truncation from 'double' to 'float'
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SFML\SFML-2.1\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SoundManager.cpp
+         SoundManager.cpp
+     1>c:\users\oliver bolt\documents\2d-game basics\2d-game basics\soundmanager.cpp(30): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\oliver bolt\documents\2d-game basics\2d-game basics\soundmanager.cpp(52): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\oliver bolt\documents\2d-game basics\2d-game basics\soundmanager.cpp(98): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\oliver bolt\documents\2d-game basics\2d-game basics\soundmanager.cpp(108): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliver Bolt\Documents\2D-Game basics\Debug\2D-Game basics.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SFML\SFML-2.1\Libs\Debug" "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Oliver Bolt\Documents\2D-Game basics\Debug\2D-Game basics.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliver Bolt\Documents\2D-Game basics\Debug\2D-Game basics.lib" /MACHINE:X86 Debug\DebugManager.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliver Bolt\Documents\2D-Game basics\Debug\2D-Game basics.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SFML\SFML-2.1\Libs\Debug" "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Oliver Bolt\Documents\2D-Game basics\Debug\2D-Game basics.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliver Bolt\Documents\2D-Game basics\Debug\2D-Game basics.lib" /MACHINE:X86 Debug\CollisionManager.obj
+         Debug\DebugManager.obj
          Debug\DrawManager.obj
          Debug\Engine.obj
          Debug\Entity.obj
@@ -28,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.57
+Time Elapsed 00:00:01.41

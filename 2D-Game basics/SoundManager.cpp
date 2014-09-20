@@ -1,5 +1,7 @@
 // SoundManager.cpp
 #include "SoundManager.h"
+#include "DebugManager.h"
+#include <sstream>
 #include <iostream>
 
 
@@ -57,8 +59,13 @@ void SoundManager::PlayMusic(std::string path)
 		}
 	}
 
+	std::stringstream stream;
 
-	std::cout << "[" << __FILE__ << ":" << __LINE__ << "] Music not found, adding sound : " << path << std::endl;
+	stream << "[" << __FILE__ << ":" << __LINE__ << "] Music not found, adding sound : " << path;
+
+	DebugManager::GetInstance().CreateDebugMessage(stream.str(), DebugManager::LOG);
+	
+	//std::cout << "[" << __FILE__ << ":" << __LINE__ << "] Music not found, adding sound : " << path << std::endl;
 	AddMusic(path);
 	PlayMusic(path);
 }

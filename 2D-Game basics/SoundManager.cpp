@@ -16,9 +16,12 @@ SoundManager::SoundManager()
 }
 
 SoundManager::~SoundManager()
-{
+{ 
+	for (SoundsStruct sound : m_SoundBank)
+	{
+		sound.~SoundsStruct();
+	}
 }
-
 
 void SoundManager::PlaySound(std::string path)
 {
@@ -142,6 +145,7 @@ void SoundManager::AddSound(std::string path)// Memleak
 	soundstruct.buffer = thebuffer;
 
 	m_SoundBank.push_back(soundstruct);
+	
 
 }
 

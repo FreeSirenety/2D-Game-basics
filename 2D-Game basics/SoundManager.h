@@ -9,6 +9,14 @@ struct SoundsStruct
 	std::string path;
 	sf::Sound* soundData;
 	sf::SoundBuffer* buffer;
+	~SoundsStruct()
+	{
+		delete soundData;
+		delete buffer;
+
+		soundData = nullptr;
+		buffer = nullptr;
+	}
 };
 struct MusicStruct
 {

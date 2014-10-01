@@ -17,11 +17,6 @@ Engine::Engine()
 	m_xSpriteManager = new SpriteManager("");
 
 	m_xStateManager = new StateManager(m_xDrawManager, m_xSpriteManager);
-
-	DebugManager::GetInstance().CreateDebugMessage("Test1", DebugManager::ALERT);
-	DebugManager::GetInstance().CreateDebugMessage("Test2", DebugManager::ALERT);
-	DebugManager::GetInstance().CreateDebugMessage("Test3", DebugManager::ALERT);
-
 	
 }
 

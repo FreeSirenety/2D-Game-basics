@@ -1,6 +1,7 @@
 #include "Object.h"
 #include "Timer.h"
 #include <iostream>
+#include "Component.h"
 
 Object::Object()
 {
@@ -46,6 +47,11 @@ void Object::UpdateTimers(float p_fDeltaTime)
 
 			m_mTimers.erase(timerToErase);
 		}
+	}
+
+	for (auto component : m_vComponents)
+	{
+		component->Update(p_fDeltaTime);
 	}
 
 	vFinishedIDs.empty();
